@@ -5,9 +5,11 @@
     <color name="colorAccent">#63faaf</color>
     <color name="white">#FFFFFF</color>
     <color name="blue">#2196F3</color>
+    <color name="darkBlue">#0d3c61</color>
     <color name="black">#2d2d2d</color>
     <color name="yellow">#FFD935</color>
     <color name="red">#BF360C</color>
+    <color name="green">#008000</color>
 
     <color name="line_bg_anime">@color/grey_hex_1e</color>
     <color name="fab_bg_anime">@color/grey_hex_1e</color>

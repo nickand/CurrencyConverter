@@ -9,6 +9,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.currencyconverter.R
 import com.example.currencyconverter.ui.extensions.basicDiffUtil
 import com.example.currencyconverter.ui.extensions.inflate
+import com.example.currencyconverter.ui.extensions.round
 import com.example.domain.Currency
 
 
@@ -55,18 +56,22 @@ class CurrencyAdapter : RecyclerView.Adapter<CurrencyAdapter.ViewHolder>() {
 
         @SuppressLint("SetTextI18n")
         fun bind(currency: Currency) {
-            currencyEurTitle.text = "EUR: ${currency.rates?.eur.toString()}"
-            currencyJpyTitle.text = "JPY: ${currency.rates?.jpy.toString()}"
-            currencyGbpTitle.text = "GBP: ${currency.rates?.gbp.toString()}"
-            currencyBrlTitle.text = "BRL: ${currency.rates?.brl.toString()}"
+            currencyEurTitle.text = currency.rates?.eur?.round(2).toString()
+            currencyJpyTitle.text = currency.rates?.jpy?.round(2).toString()
+            currencyGbpTitle.text = currency.rates?.gbp?.round(2).toString()
+            currencyBrlTitle.text = currency.rates?.brl?.round(2).toString()
         }
 
         @SuppressLint("SetTextI18n")
         fun setAmounts(currency: Currency, amount: Int) {
-            currencyEurTitle.text = "EUR: ${amount.toDouble() * currency.rates?.eur!!}"
-            currencyJpyTitle.text = "JPY: ${amount.toDouble() * currency.rates?.jpy!!}"
-            currencyGbpTitle.text = "GBP: ${amount.toDouble() * currency.rates?.gbp!!}"
-            currencyBrlTitle.text = "BRL: ${amount.toDouble() * currency.rates?.brl!!}"
+            if (amount == 0) {
+                bind(currency)
+                return
+            }
+            currencyEurTitle.text = "${(amount.toDouble() * currency.rates?.eur!!).round(2)}"
+            currencyJpyTitle.text = "${(amount.toDouble() * currency.rates?.jpy!!).round(2)}"
+            currencyGbpTitle.text = "${(amount.toDouble() * currency.rates?.gbp!!).round(2)}"
+            currencyBrlTitle.text = "${(amount.toDouble() * currency.rates?.brl!!).round(2)}"
         }
     }
 }

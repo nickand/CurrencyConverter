@@ -111,6 +111,9 @@ dependencies {
 
     //Koin
     implementation "org.koin:koin-android-viewmodel:2.0.1"
+
+    //MPAndroidChart
+    implementation 'com.github.PhilJay:MPAndroidChart:v3.1.0'
 }
 repositories {
     mavenCentral()
