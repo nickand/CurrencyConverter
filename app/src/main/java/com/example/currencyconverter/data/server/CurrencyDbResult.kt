@@ -7,14 +7,15 @@ import kotlinx.android.parcel.Parcelize
 @Parcelize
 data class Currency(
     val id: Int,
-    val rate: Rate,
+    @SerializedName("rates")
+    val rates: Rate?,
     val base: String,
     val date: String
 ) : Parcelable
 
 @Parcelize
 data class Rate(
-    val id: Int,
+    val rateId: Int,
     @SerializedName("EUR")
     val eur: Double,
     @SerializedName("JPY")

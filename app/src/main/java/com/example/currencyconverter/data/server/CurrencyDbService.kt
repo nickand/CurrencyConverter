@@ -7,5 +7,5 @@ import retrofit2.http.Query
 interface CurrencyDbService {
 
     @GET("latest")
-    fun getAllCurrencies(@Query("base") base: String, @Query("symbols") symbols: String): Deferred<List<Currency>>
+    fun getAllCurrencies(@Query("base") base: String, @Query("symbols") symbols: String): Deferred<Currency>
 }

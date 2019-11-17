@@ -10,14 +10,14 @@ import kotlinx.coroutines.withContext
 class RoomDataSource(db: CurrencyDatabase) : LocalDataSource {
 
     private val currencyDao = db.currencyDao()
-    private val rateDao = db.rateDao()
 
-    override suspend fun saveCurrencies(currencies: List<Currency>) {
-        withContext(Dispatchers.IO) { currencyDao.insertCurrencies(currencies.map { it.toRoomCurrency() }) }
+    override suspend fun saveCurrencies(currencies: Currency) {
+        withContext(Dispatchers.IO) { currencyDao.insertCurrencies(currencies.toRoomCurrency()) }
     }
 
-    override suspend fun getLatestCurrencies(): List<Currency> =
+    override suspend fun getLatestCurrencies(): List<Currency> = withContext(Dispatchers.IO) {
         currencyDao.getAll().map { it.toDomainCurrency() } as MutableList<Currency>
+    }
 
     override suspend fun update(currency: Currency) {
         withContext(Dispatchers.IO) { currencyDao.updateCurrency(currency.toRoomCurrency()) }

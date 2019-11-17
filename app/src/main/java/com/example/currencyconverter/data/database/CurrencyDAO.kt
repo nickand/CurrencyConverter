@@ -15,7 +15,7 @@ interface CurrencyDAO {
     fun currencyCount(): Int
 
     @Insert(onConflict = OnConflictStrategy.IGNORE)
-    fun insertCurrencies(currencies: List<Currency>)
+    fun insertCurrencies(currencies: Currency)
 
     @Update
     fun updateCurrency(currency: Currency)

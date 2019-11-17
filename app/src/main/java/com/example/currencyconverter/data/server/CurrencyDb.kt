@@ -10,7 +10,7 @@ import java.util.concurrent.TimeUnit
 
 object CurrencyDb {
     private val okHttpClient = HttpLoggingInterceptor().run {
-        level = HttpLoggingInterceptor.Level.HEADERS
+        level = HttpLoggingInterceptor.Level.BODY
         val builder = OkHttpClient.Builder()
         builder.connectTimeout(5, TimeUnit.MINUTES) // connect timeout
             .writeTimeout(5, TimeUnit.MINUTES) // write timeout

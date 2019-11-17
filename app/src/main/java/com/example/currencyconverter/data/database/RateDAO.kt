@@ -15,5 +15,5 @@ interface RateDAO {
     fun rateCount(): Int
 
     @Insert(onConflict = OnConflictStrategy.IGNORE)
-    fun insertRates(posts: List<Rate>)
+    fun insertRates(rates: List<Rate>)
 }

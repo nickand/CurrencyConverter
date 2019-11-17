@@ -11,7 +11,6 @@ class CurrencyRepository(
 ) {
 
     suspend fun getLatestCurrencies(): List<Currency> {
-
         if (localDataSource.isEmpty()) {
             val currencies =
                 remoteDataSource.getLatestCurrencies(BASE_CURRENCY)
@@ -20,8 +19,4 @@ class CurrencyRepository(
 
         return localDataSource.getLatestCurrencies()
     }
-
-    suspend fun findById(id: Int): Currency = localDataSource.findById(id)
-
-    suspend fun update(currency: Currency) = localDataSource.update(currency)
 }

@@ -112,3 +112,6 @@ dependencies {
     //Koin
     implementation "org.koin:koin-android-viewmodel:2.0.1"
 }
+repositories {
+    mavenCentral()
+}
