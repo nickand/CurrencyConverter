@@ -1,14 +1,15 @@
 package com.example.currencyconverter.ui.main
 
+import android.app.Activity
 import android.graphics.RectF
 import android.os.Bundle
-import android.text.InputType
 import android.util.Log
 import android.view.KeyEvent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.view.inputmethod.EditorInfo
+import android.view.inputmethod.InputMethodManager
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
@@ -91,7 +92,7 @@ class CurrencyFragment : Fragment(), OnChartValueSelectedListener {
                             amount = text.text.toString()
 
                             if (amount.isEmpty()) {
-                                return false
+                                return true
                             }
 
                             setData(
@@ -120,6 +121,7 @@ class CurrencyFragment : Fragment(), OnChartValueSelectedListener {
                             )
 
                             adapter.setAmount(adapter.currencies[0], amount.toInt())
+                            hideKeyboard(requireActivity())
                             return true
                         }
                         return true
@@ -262,6 +264,18 @@ class CurrencyFragment : Fragment(), OnChartValueSelectedListener {
             data.barWidth = barWidth
             horizontalChart.data = data
         }
+    }
+
+    private fun hideKeyboard(activity: Activity) {
+        val imm: InputMethodManager =
+            requireActivity().getSystemService(Activity.INPUT_METHOD_SERVICE) as InputMethodManager
+        //Find the currently focused view, so we can grab the correct window token from it.
+        var view: View? = activity.currentFocus
+        //If no view currently has focus, create a new one, just so we can grab a window token from it
+        if (view == null) {
+            view = View(activity)
+        }
+        imm.hideSoftInputFromWindow(view.windowToken, 0)
     }
 
     override fun onNothingSelected() {
