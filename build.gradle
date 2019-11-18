@@ -21,6 +21,71 @@ allprojects {
         jcenter()
         maven { url 'https://jitpack.io' }
     }
+
+    ext {
+
+        androidLibs = [
+                appcompat           : 'androidx.appcompat:appcompat:1.1.0',
+                recyclerview        : 'androidx.recyclerview:recyclerview:1.0.0',
+                constraintlayout    : 'androidx.constraintlayout:constraintlayout:1.1.3',
+                androidxCore        : 'androidx.core:core-ktx:1.1.0',
+                lifecycleExtensions : 'android.arch.lifecycle:extensions:1.1.1',
+                playServicesLocation: 'com.google.android.gms:play-services-location:17.0.0',
+                material            : 'com.google.android.material:material:1.0.0',
+                roomRuntime         : 'androidx.room:room-runtime:2.2.1',
+                glide               : 'com.github.bumptech.glide:glide:4.9.0',
+                dexter              : 'com.karumi:dexter:5.0.0',
+                androidChart        : 'com.github.PhilJay:MPAndroidChart:v3.1.0',
+                liveData            :"androidx.lifecycle:lifecycle-livedata:2.1.0",
+                liveDataCore        :"androidx.lifecycle:lifecycle-livedata-core:2.1.0",
+                liveDataExtensions  :"androidx.lifecycle:lifecycle-extensions:2.1.0",
+                navigation          :'android.arch.navigation:navigation-fragment:1.0.0'
+        ]
+
+        androidKaptLibs = [
+                roomCompiler : 'androidx.room:room-compiler:2.2.1',
+                glideCompiler: 'com.github.bumptech.glide:compiler:4.9.0'
+        ]
+
+        kotlinLibs = [
+                stdlib    : "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version",
+                coroutines: 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.2.2'
+        ]
+
+        libs = [
+                okhttpLoginInterceptor   : 'com.squareup.okhttp3:logging-interceptor:4.0.1',
+                retrofit                 : 'com.squareup.retrofit2:retrofit:2.6.0',
+                retrofitGsonConverter    : 'com.squareup.retrofit2:converter-gson:2.6.0',
+                retrofitCoroutinesAdapter: 'com.jakewharton.retrofit:retrofit2-kotlin-coroutines-adapter:0.9.2',
+                koin                     : "org.koin:koin-android-viewmodel:2.0.1",
+                calligraphy              : 'uk.co.chrisjenx:calligraphy:2.2.0',
+                crystalpreloaders        : 'com.crystal:crystalpreloaders:1.0.0'
+        ]
+
+        testLibs = [
+                junit        : 'junit:junit:4.12',
+                mockitoKotlin: "com.nhaarman.mockitokotlin2:mockito-kotlin:2.1.0",
+                mockitoInline: "org.mockito:mockito-inline:2.28.2",
+                mockitoCore  : 'org.mockito:mockito-core:2.28.2',
+                koinTest     : 'org.koin:koin-test:2.0.1',
+        ]
+
+        androidxTestLibs = [
+                archCoreTesting: 'android.arch.core:core-testing:1.1.1'
+        ]
+
+        androidTestLibs = [
+                testRunner          : 'androidx.test:runner:1.2.0',
+                espresso            : 'androidx.test.espresso:espresso-contrib:3.2.0',
+                espressoCore        : 'com.android.support.test.espresso:espresso-core:3.0.2',
+                rules               : 'androidx.test:rules:1.2.0',
+                extJunit            : 'androidx.test.ext:junit-ktx:1.1.1',
+                koinTest            : 'org.koin:koin-test:2.0.1',
+                mockWebServer       : 'com.squareup.okhttp3:mockwebserver:4.2.1',
+                okhttpIdling        : 'com.jakewharton.espresso:okhttp3-idling-resource:1.0.0',
+                supportAnnotations  : 'com.android.support:support-annotations:28.0.0'
+        ]
+    }
 }
 
 task clean(type: Delete) {

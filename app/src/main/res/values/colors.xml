@@ -10,9 +10,6 @@
     <color name="yellow">#FFD935</color>
     <color name="red">#BF360C</color>
     <color name="green">#008000</color>
-
-    <color name="line_bg_anime">@color/grey_hex_1e</color>
-    <color name="fab_bg_anime">@color/grey_hex_1e</color>
     <color name="black_anime">#3B3B3B</color>
 
 </resources>
