@@ -29,6 +29,7 @@ A collection of samples using the [Architecture Components](https://developer.an
 - ![Android Support Design](https://developer.android.com/topic/libraries/support-library/packages)
 - ![Koin](https://insert-koin.io/)
 - ![Crystal-preloaders](https://github.com/syedowaisali/crystal-preloaders)
+- ![Calligraphy](https://github.com/chrisjenx/Calligraphy)
 - ![MPAndroidChart](https://github.com/PhilJay/MPAndroidChart)
 
 ## TO DO
